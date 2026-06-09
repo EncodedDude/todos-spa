@@ -1,0 +1,21 @@
+.create-todo-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background: var(--bg-second);
+    margin-top: 40px;
+}
+
+.create-todo-card__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-head);
+    text-align: center;
+}
+
+.btn-create-todo {
+    width: 100%;
+}

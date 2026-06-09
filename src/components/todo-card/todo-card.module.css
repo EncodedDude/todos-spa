@@ -1,0 +1,43 @@
+.item-todo {
+display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background: var(--bg-second);
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.item-todo:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.item-todo__title {
+    margin: 0;
+    font-weight: bold;
+    color: #2d2d2d;
+}
+
+.item-todo__text {
+    margin: 0;
+    padding: 8px 0;
+    word-break: break-word;
+    color: #2d2d2d;
+}
+
+.item-todo__text:hover {
+    background-color: transparent;
+}
+
+.item-todo__actions {
+    display: none;
+}
+
+.item-todo__edit {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #2d2d2d;
+    border-radius: 4px;
+    font-size: 14px;
+}

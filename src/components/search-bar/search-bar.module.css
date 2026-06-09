@@ -1,0 +1,8 @@
+.form-search {
+    display: flex;
+    gap: 10px;
+}
+
+.form-search .input {
+    max-width: 300px;
+}

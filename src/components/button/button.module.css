@@ -1,0 +1,22 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 15px 20px;
+    border-radius: 100px;
+    background: var(--text-head);
+    color: var(--bg-primary);
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-create-todo {
+    width: 100%;
+}

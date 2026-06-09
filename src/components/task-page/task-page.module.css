@@ -1,0 +1,93 @@
+.task-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    margin-right: 15px;
+    color: #2d2d2d;
+}
+
+.back-button:hover {
+    background-color: #f0f0f0;
+}
+
+.task-title {
+    margin: 0;
+    font-size: 24px;
+}
+
+.task-content {
+    margin-bottom: 20px;
+    min-height: 60px;
+    padding: 15px;
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-text {
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    padding: 8px 0;
+    margin: 0;
+    color: #2d2d2d;
+}
+
+.edit-textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 0;
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: inherit;
+    min-height: 60px;
+    outline: none;
+    background: transparent;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.task-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--stroke);
+    background: var(--bg-second);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+}
+
+.task-actions button:hover {
+    background: var(--bg-primary);
+}
+
+.loading, .notFound {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
