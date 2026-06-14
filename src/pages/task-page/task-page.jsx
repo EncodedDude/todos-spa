@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTodos } from "../../hooks/use-todos";
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './task-page.module.css';
 
-export const TaskPage = ({ todos, isLoading, onEdit, onDelete }) => {
+export const TaskPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { todos, isLoading, editTodo, deleteTodo } = useTodos();
     
     const todo = todos.find(todo => todo.id === parseInt(id));
+    const currentIndex = todos.findIndex(todo => todo.id === parseInt(id));
     
     const [isEditing, setIsEditing] = useState(false);
-    const [editText, setEditText] = useState(todo?.text || '');
+    const [editText, setEditText] = useState('');
+
+    useEffect(() => {
+        if (todo) {
+            setEditText(todo.text);
+        }
+    }, [todo]);
 
     if (isLoading) {
         return <h2 className={styles.loading}>Загрузка задачи...</h2>;
@@ -20,7 +29,7 @@ export const TaskPage = ({ todos, isLoading, onEdit, onDelete }) => {
     }
 
     const handleSave = () => {
-        onEdit(todo.id, editText);
+        editTodo(todo.id, editText);
         setIsEditing(false);
     };
 
@@ -35,7 +44,7 @@ export const TaskPage = ({ todos, isLoading, onEdit, onDelete }) => {
 
     const handleDelete = () => {
         if (window.confirm('Вы уверены, что хотите удалить эту задачу?')) {
-            onDelete(todo.id);
+            deleteTodo(todo.id);
             navigate('/');
         }
     };
@@ -48,7 +57,7 @@ export const TaskPage = ({ todos, isLoading, onEdit, onDelete }) => {
                         <path fill="#2d2d2d" d="M12 20l-8-8l8-8l1.425 1.4l-6.575 6.6H20v2H6.85l6.575 6.6z"/>
                     </svg>
                 </button>
-                <h1 className={styles['task-title']}>Задача #{todo.id}</h1>
+                <h1 className={styles['task-title']}>Задача №{currentIndex + 1}</h1>
             </div>
             
             <div className={styles['task-content']}>

@@ -1,4 +1,4 @@
-const URL = "http://localhost:4000/todos"; // Изменили порт на 4000
+const URL = "http://localhost:4000/todos";
 
 export const fetchTodos = () =>
     fetch(URL).then((response) => {
@@ -22,7 +22,7 @@ export const updateTodo = (id, text) =>
     fetch(`${URL}/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }), // Убрали id из тела, так как он уже в URL
+        body: JSON.stringify({ text }),
     }).then((response) => {
         if (!response.ok) throw new Error("Ошибка редактирования задачи");
         return response.json();

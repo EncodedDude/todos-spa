@@ -10,6 +10,10 @@ export const SearchBar = ({
 }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (value === '') {
+            alert('Введите фразу для поиска');
+            return;
+        }
         onSearch(value);
     };
 
