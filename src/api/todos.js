@@ -34,3 +34,9 @@ export const deleteTodoApi = (id) =>
     }).then((response) => {
         if (!response.ok) throw new Error("Ошибка удаления задачи");
     });
+
+export const getTodoById = (id) =>
+    fetch(`${URL}/${id}`).then((response) => {
+        if (!response.ok) throw new Error("Ошибка загрузки задачи");
+        return response.json();
+    });

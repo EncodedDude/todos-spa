@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import {
     fetchTodos,
     createTodo,
-    updateTodo,
-    deleteTodoApi,
 } from "../api/todos";
 
 export const useTodos = () => {
@@ -28,25 +26,7 @@ export const useTodos = () => {
             .catch(console.error);
     };
 
-    const editTodo = (id, newText) => {
-        updateTodo(id, newText)
-            .then((updatedTodo) => {
-                setTodos((prev) =>
-                    prev.map((todo) =>
-                        todo.id === updatedTodo.id ? updatedTodo : todo,
-                    ),
-                );
-            })
-            .catch(console.error);
-    };
 
-    const deleteTodo = (id) => {
-        deleteTodoApi(id)
-            .then(() =>
-                setTodos((prev) => prev.filter((todo) => todo.id !== id))
-            )
-            .catch(console.error);
-    };
 
-    return { todos, isLoading, addTodo, editTodo, deleteTodo }
+    return { todos, isLoading, addTodo }
 };
